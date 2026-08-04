@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: ourbeautiful/america
+  branch: main
+  # This tells Decap CMS to use Netlify's free OAuth proxy to sign
+  # editors in with GitHub, even though the site itself is hosted on
+  # GitHub Pages, not Netlify. See CMS-SETUP.md for the one-time setup.
+  base_url: https://REPLACE-WITH-YOUR-NETLIFY-SITE.netlify.app
+
+# GitHub Pages does not build the site, so the CMS commits straight to
+# the repo and the "Build & Deploy" GitHub Action (.github/workflows/deploy.yml)
+# regenerates content/news/manifest.json and content/chapters/manifest.json
+# and republishes the site automatically. There is no separate "publish"
+# step to run by hand.
+publish_mode: simple
+
+media_folder: assets/images/uploads
+public_folder: /assets/images/uploads
+
+collections:
+
+  - name: news
+    label: "News Posts"
+    label_singular: "News Post"
+    description: "Shown on the Current News page, newest first."
+    folder: content/news
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Tag / Eyebrow", name: date_label, widget: string, hint: "Short label shown above the title, e.g. 'Launch' or 'Founding Chapter'" }
+      - { label: "Publish Date", name: date, widget: datetime }
+      - { label: "Body", name: body, widget: text }
+
+  - name: chapters
+    label: "Chapters"
+    label_singular: "Chapter"
+    description: "Powers the chapter search box on the homepage."
+    folder: content/chapters
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Chapter Name", name: name, widget: string, hint: "e.g. Our Beautiful Barnegat" }
+      - { label: "City, State", name: city, widget: string, hint: "e.g. Barnegat, NJ" }
+      - { label: "Status", name: status, widget: select, options: ["Founding", "Active", "Coming Soon"], default: "Active" }
+      - { label: "Chapter Page URL", name: url, widget: string, hint: "Relative link, e.g. chapters/your-chapter.html. Create the page in /chapters first." }
+      - { label: "Description", name: body, widget: text, required: false }

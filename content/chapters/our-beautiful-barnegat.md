@@ -1,0 +1,7 @@
+---
+name: "Our Beautiful Barnegat"
+city: "Barnegat, NJ"
+status: "Founding"
+url: "chapters/our-beautiful-barnegat.html"
+---
+This chapter's page is being built. Check back soon, or head to the chapter system to learn how OBA chapters work.
