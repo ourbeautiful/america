@@ -80,6 +80,10 @@ for them later.
 Setting up who can log into `/admin` and publish changes is a short,
 one-time step: see [`CMS-SETUP.md`](./CMS-SETUP.md).
 
+Don't want to wait on that setup? News posts can also be edited directly
+on GitHub with no extra setup beyond repo access: see
+[`EDITING-GUIDE.md`](./EDITING-GUIDE.md).
+
 ## Working locally
 
 No build tools are required to preview the site. From the repo folder:

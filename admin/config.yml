@@ -45,5 +45,5 @@ collections:
       - { label: "Chapter Name", name: name, widget: string, hint: "e.g. Our Beautiful Barnegat" }
       - { label: "City, State", name: city, widget: string, hint: "e.g. Barnegat, NJ" }
       - { label: "Status", name: status, widget: select, options: ["Founding", "Active", "Coming Soon"], default: "Active" }
-      - { label: "Chapter Page URL", name: url, widget: string, hint: "Relative link, e.g. chapters/your-chapter.html. Create the page in /chapters first." }
+      - { label: "Chapter Page URL", name: url, widget: string, hint: "Full web address for the chapter, e.g. https://barnegat.ourbeautiful.org/. If a chapter doesn't have its own site yet, use a relative link instead, e.g. chapters/your-chapter.html." }
       - { label: "Description", name: body, widget: text, required: false }

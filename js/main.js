@@ -167,7 +167,7 @@
   // Default/fallback chapter list, used until (or unless) content.js
   // successfully loads the CMS-managed list from content/chapters/manifest.json.
   var chapters = [
-    { name: 'Our Beautiful Barnegat', city: 'Barnegat, NJ', url: 'chapters/our-beautiful-barnegat.html' }
+    { name: 'Our Beautiful Barnegat', city: 'Barnegat, NJ', url: 'https://barnegat.ourbeautiful.org/' }
   ];
 
   var chapterInput = document.getElementById('chapterSearchInput');
@@ -204,10 +204,23 @@
         var link = document.createElement('a');
         link.className = 'chapter-result';
         link.href = chapter.url;
+        // Chapters with their own site (a full https:// URL, e.g. a
+        // subdomain like barnegat.ourbeautiful.org) open in a new tab so
+        // the visitor doesn't lose their place on the main OBA site.
+        // Chapters that don't have their own site yet use a relative
+        // link (e.g. chapters/name.html) and open in the same tab.
+        if(isExternalUrl(chapter.url)){
+          link.target = '_blank';
+          link.rel = 'noopener';
+        }
         link.innerHTML = '<span class="chapter-result-name">' + chapter.name + '</span><span class="chapter-result-city">' + chapter.city + '</span>';
         chapterResults.appendChild(link);
       });
       chapterResults.hidden = false;
+    }
+
+    function isExternalUrl(url){
+      return /^https?:\/\//i.test(url);
     }
 
     function search(query){
@@ -226,7 +239,11 @@
       if(e.key === 'Enter'){
         var matches = search(chapterInput.value);
         if(matches.length === 1){
-          window.location.href = matches[0].url;
+          if(isExternalUrl(matches[0].url)){
+            window.open(matches[0].url, '_blank', 'noopener');
+          } else {
+            window.location.href = matches[0].url;
+          }
         }
       }
     });
