@@ -14,10 +14,12 @@ build/deploy setup.
 ```
 index.html               Home page
 news.html                Current News page
+apply.html               Start a Chapter application form (opens the visitor's email app, no server involved)
 chapters/                One page per chapter (currently: Barnegat)
 css/styles.css           All site styling
-js/main.js               Site behavior (nav, share menu, donate modal, chapter search)
+js/main.js               Site behavior (nav, share menu, donate modal + suggested amounts, chapter search)
 js/content.js            Loads CMS-managed news/chapter content (see below)
+js/apply.js              Word counter and mailto submission for apply.html
 assets/images/           Logos, favicons, and uploaded media
 content/news/            One markdown file per news post (edited via /admin)
 content/chapters/        One markdown file per chapter listing (edited via /admin)

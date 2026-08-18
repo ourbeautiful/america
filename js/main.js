@@ -133,6 +133,28 @@
     if(btn) btn.addEventListener('click', openDonateModal);
   });
 
+  // Suggested donation amounts: each button opens Venmo with the amount
+  // pre-filled and updates the impact line under the buttons.
+  // NOTE: Venmo's pay-link format (venmo.com/<handle>?txn=pay&amount=..&note=..)
+  // is a widely used but unofficial deep link. Test it on both desktop and
+  // mobile after this goes live, since Venmo can change this behavior.
+  var amountButtons = document.querySelectorAll('.amount-btn');
+  var amountImpact = document.getElementById('amountImpact');
+  if(amountButtons.length){
+    amountButtons.forEach(function(btn){
+      var amount = btn.getAttribute('data-amount');
+      var note = 'Donation to Our Beautiful America';
+      btn.href = 'https://venmo.com/OurBeautifulAmerica?txn=pay&amount=' + encodeURIComponent(amount) + '&note=' + encodeURIComponent(note);
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.addEventListener('click', function(){
+        amountButtons.forEach(function(b){ b.classList.remove('is-selected'); });
+        btn.classList.add('is-selected');
+        if(amountImpact){ amountImpact.textContent = btn.getAttribute('data-impact') || ''; }
+      });
+    });
+  }
+
   if(donateModal){
     donateModal.querySelectorAll('[data-close]').forEach(function(el){
       el.addEventListener('click', closeDonateModal);
@@ -172,7 +194,7 @@
       if(matches.length === 0){
         var empty = document.createElement('div');
         empty.className = 'chapter-result chapter-result-empty';
-        empty.innerHTML = 'No chapters here yet. <a href="mailto:ourbeautifulamerica1@gmail.com?subject=Starting%20a%20Chapter">Be the first, start one.</a>';
+        empty.innerHTML = 'No chapters here yet. <a href="apply.html">Be the first, start one.</a>';
         chapterResults.appendChild(empty);
         chapterResults.hidden = false;
         return;

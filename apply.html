@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Beautiful Barnegat | Our Beautiful America</title>
-<meta name="description" content="The founding chapter of Our Beautiful America, based in Barnegat, New Jersey.">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicon-180.png">
+<title>Start a Chapter | Our Beautiful America</title>
+<meta name="description" content="Apply to start a local Our Beautiful America chapter in your town or city.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -19,12 +19,12 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="../index.html">
-      <img class="brand-mark" src="../assets/images/logo-mark.png" alt="">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/images/logo-mark.png" alt="">
       <span class="brand-word">Our Beautiful<br>America</span>
     </a>
     <nav class="site-nav" aria-label="Primary">
-      <a class="nav-link" href="../news.html">Current News</a>
+      <a class="nav-link" href="news.html">Current News</a>
       <div class="share-wrap">
         <button class="icon-btn" id="shareBtn" type="button" aria-haspopup="true" aria-expanded="false">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.6" x2="15.4" y2="6.4"/><line x1="8.6" y1="13.4" x2="15.4" y2="17.6"/></svg>
@@ -43,18 +43,81 @@
 </header>
 
 <main id="main">
-  <section class="chapter-stub">
-    <span class="section-eyebrow">Founding Chapter</span>
-    <h1 class="section-title">Our Beautiful Barnegat</h1>
-    <p class="chapter-stub-text">This chapter's page is being built. Check back soon, or head to <a href="../index.html#chapters">the chapter system</a> to learn how OBA chapters work.</p>
-    <a class="btn btn-primary" href="../index.html#chapters">Back to chapters</a>
+  <section class="news-hero">
+    <span class="section-eyebrow">Get Involved</span>
+    <h1 class="section-title">Start a Chapter</h1>
+    <p class="news-hero-sub">Tell us about you and your town. This opens a pre-filled email in your own email app, addressed to OBA, nothing is submitted to a server or stored on this site.</p>
+  </section>
+
+  <section class="apply-section">
+    <p class="apply-intro">Fill this out and hit send below. Your email app will open with everything filled in and ready to go to <strong>ourbeautifulamerica1@gmail.com</strong>. You can look it over before actually sending it.</p>
+
+    <form class="apply-form" id="applyForm" novalidate>
+
+      <div class="form-row">
+        <label for="applyName">Full name</label>
+        <input type="text" id="applyName" name="applyName" autocomplete="name" required>
+      </div>
+
+      <div class="form-row-split">
+        <div class="form-row">
+          <label for="applyAge">Age</label>
+          <input type="number" id="applyAge" name="applyAge" min="10" max="100" autocomplete="off" required>
+        </div>
+        <div class="form-row">
+          <label for="applyEmail">Email</label>
+          <input type="email" id="applyEmail" name="applyEmail" autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="form-row-split">
+        <div class="form-row">
+          <label for="applyCity">City</label>
+          <input type="text" id="applyCity" name="applyCity" autocomplete="address-level2" required>
+        </div>
+        <div class="form-row">
+          <label for="applyState">State</label>
+          <select id="applyState" name="applyState" autocomplete="address-level1" required>
+            <option value="" disabled selected>Select a state</option>
+            <option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option>
+            <option>CO</option><option>CT</option><option>DE</option><option>DC</option><option>FL</option>
+            <option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option>
+            <option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option>
+            <option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option>
+            <option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option>
+            <option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option>
+            <option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option>
+            <option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+            <option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option>
+            <option>WY</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="applyReason">Why do you want to start a chapter in your town? <span class="form-hint">(400 words max)</span></label>
+        <textarea id="applyReason" name="applyReason" required></textarea>
+        <span class="word-count" id="wordCount">0 / 400 words</span>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary">Send my application</button>
+      </div>
+
+      <p class="apply-status" id="applyStatus" role="status" hidden></p>
+
+      <p class="apply-fallback">If your email app doesn't open automatically, or you'd rather send it a different way, you can also
+        <a href="mailto:ourbeautifulamerica1@gmail.com?subject=Starting%20a%20Chapter" id="applyFallbackLink">email us directly</a>.
+      </p>
+
+    </form>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <img class="footer-mark" src="../assets/images/logo-mark.png" alt="">
+      <img class="footer-mark" src="assets/images/logo-mark.png" alt="">
       <p class="footer-word">Our Beautiful America</p>
       <p class="footer-tag">Nature. Civics. Youth.</p>
       <div class="footer-social">
@@ -77,15 +140,15 @@
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
-      <a href="../index.html#pillars">Our Pillars</a>
-      <a href="../index.html#commission">The Commission</a>
-      <a href="../index.html#chapters">Chapter System</a>
-      <a href="../news.html">Current News</a>
+      <a href="index.html#pillars">Our Pillars</a>
+      <a href="index.html#commission">The Commission</a>
+      <a href="index.html#chapters">Chapter System</a>
+      <a href="news.html">Current News</a>
     </div>
     <div class="footer-col">
       <h4>Get Involved</h4>
       <button type="button" id="footerDonateBtn" class="footer-link-btn">Donate Now</button>
-      <a href="../apply.html">Start a Chapter</a>
+      <a href="apply.html">Start a Chapter</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -121,6 +184,7 @@
   </div>
 </div>
 
-<script src="../js/main.js"></script>
+<script src="js/main.js"></script>
+<script src="js/apply.js"></script>
 </body>
 </html>
